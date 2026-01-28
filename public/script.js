@@ -5,17 +5,6 @@ let selectedImageBase64 = null;
 // API Configuration - menggunakan backend API
 const API_BASE_URL = window.location.origin; // Otomatis menggunakan URL server yang sama
 
-// Text cleaning options (set ke true/false sesuai kebutuhan)
-const FORMATTING_OPTIONS = {
-    removeHeaders: true,       // Hapus ###, ##, #
-    removeBold: true,          // Hapus **text**
-    removeItalic: true,        // Hapus *text* dan _text_
-    removeBackticks: true,     // Hapus `code`
-    removeLinks: true,         // Hapus [text](url), keep text only
-    cleanEmojis: false,        // Set true untuk hapus emoji (🍎, 📊, dll)
-    normalizeSpaces: true      // Bersihkan spasi berlebih
-};
-
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     const uploadArea = document.getElementById('uploadArea');
@@ -52,7 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function openCamera() {
     const fileInput = document.getElementById('fileInput');
+    // Pada mobile, ini akan membuka camera langsung
     fileInput.setAttribute('capture', 'environment');
+    fileInput.setAttribute('accept', 'image/*');
     fileInput.click();
 }
 
@@ -185,6 +176,7 @@ function cleanText(text) {
         .replace(/\n{3,}/g, '\n\n')   // Max 2 newlines
         .trim();
 }
+
 function showLoading() {
     document.getElementById('loading').classList.add('active');
 }
