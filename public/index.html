@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Nutrition Analyzer - AI Powered</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calori AI - Food Nutrition Analyzer</h1>
+            <p>Analisis nutrisi makanan dengan AI</p>
+        </header>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message"></div>
+
+        <!-- Upload Area -->
+        <div id="uploadArea" class="upload-area">
+            <div class="upload-icon">📸</div>
+            <h2>Upload Foto Makanan</h2>
+            <p>Klik atau drag & drop foto makanan Anda</p>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        </div>
+
+        <!-- Camera Buttons -->
+        <div class="camera-buttons">
+            <button onclick="openCamera()" class="btn btn-camera">
+                📷 Buka Kamera
+            </button>
+            <button onclick="openGallery()" class="btn btn-gallery">
+                🖼️ Pilih dari Galeri
+            </button>
+        </div>
+
+        <!-- Preview Container -->
+        <div id="previewContainer" class="preview-container">
+            <h2>Preview Gambar</h2>
+            <img id="imagePreview" alt="Preview" />
+            <div class="button-group">
+                <button onclick="analyzeImage()" id="analyzeBtn" class="btn btn-primary">
+                    🔍 Analisis Nutrisi
+                </button>
+                <button onclick="resetUpload()" class="btn btn-secondary">
+                    🔄 Ganti Gambar
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Menganalisis nutrisi makanan...</p>
+        </div>
+
+        <!-- Result Container -->
+        <div id="resultContainer" class="result-container">
+            <h2>📊 Hasil Analisis</h2>
+            <div id="resultContent" class="result-content"></div>
+            <button onclick="resetUpload()" class="btn btn-primary">
+                ✨ Analisis Makanan Baru
+            </button>
+        </div>
+
+       
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
